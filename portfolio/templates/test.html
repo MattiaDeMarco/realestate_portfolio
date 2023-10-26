@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<!-- Galleria Boostrap -->
+<!--  
+  <div class="container">
+    <div id="{{property.title}}" class="carousel slide">
+        <div class="carousel-inner">
+            {% for photo in photos %}
+            <div class="carousel-item {% if forloop.first %} active {% endif %}">
+                <img src="{{photo.image.url}}" class="d-block w-100" alt="..."/>
+            </div>
+            {% endfor %}
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#{{property.title}}" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true" ></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#{{property.title}}" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+  </div>
+-->
+
+{% endblock content %}
+

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row justify-content-center my-5">
+        <div class="col-md-2">
+            <a href="{% url 'gallery' %}" class="btn btn-outline-dark m-2">Indietro</a>
+        </div>
+        <div class="col-md-10">
+            <h3 class='mx-auto'> Galleria Immagini</h3>
+        </div>
+    </div>
+</div>
+
+<div class='container p-5'>
+    {% for photo in photos %}
+    <div class="py-2">
+        <a href="{% url 'photo' photo.id %}">
+            <img src="{{photo.image.url}}" class="d-block w-100" alt="{{photo.description}} {{property.title}} {{property.city}}"/>
+        </a>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock content %}

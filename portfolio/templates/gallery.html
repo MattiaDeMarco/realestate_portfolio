@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+  <div class="col-md-6">
+    <div class="row">
+      {% for property in properties %}
+      <div class="col-lg-6">
+        <div class="card my-3">
+          <img class="thunbnail-image" src="{{property.thumbnail.url}}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <p class="card-text">Titolo : {{property.title}}</p>
+            <p class="card-text">Città : {{property.city}}</p>
+          </div>
+          <a href="{% url 'property' property.id %}" class="btn btn-primary btn-sm m-1">Galleria Immagini</a>
+          <a href="{{property.virtual_tour}}" target="_blank" class="btn btn-primary btn-sm m-1">VirtualTour</a>
+        </div>
+      </div>
+      {% empty %}
+        <h3> Nessun Immobile Inserito ... </h3>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

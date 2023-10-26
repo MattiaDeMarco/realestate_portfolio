@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="container pt-5">
+  <div class="row justify-content-center">
+    <div class="col">
+      <a href="{% url 'gallery' %}" class="btn btn-outline-dark">Indietro</a>
+    </div>
+    <div class="container">
+      <img class="my-5" src="{{photo.image.url}}" alt='{{photo.description}} {{property.title}} {{property.city}}'/>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

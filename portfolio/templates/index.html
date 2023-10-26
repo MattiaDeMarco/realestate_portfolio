@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<!-- HERO SECTION -->
+<div class="container my-5">
+    <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-4 border shadow-lg">
+      <div class="col-lg-4  p-0 overflow-hidden shadow-lg">
+        <img class="" src="{% static 'images/copertina.jpg' %}" alt="" width="550"/>
+      </div>
+      <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
+        <h1 class="display-4 fw-bold lh-1 text-body-emphasis">
+          Vuoi vendere la tua casa o proporla su AirBnb?
+        </h1>
+        <p class="lead py-3">
+          Al giorno d'oggi le immagini valgono più di mille parole!<br>
+          Uno shooting fotografico ben pensato per <b>valorizzare l'immobile</b>, 
+          potrebbe portarvi il <b>40% in più di prenotazioni!</b><br>
+          Proprio per questo motivo mi occupo di fotografare e realizzare virtual tour per case 
+          private, agenzie o strutture ricettive!
+        </p>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
+          <!-- Calendly link widget begin -->
+          <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+          <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+          <a class="btn btn-primary btn-lg px-4 me-md-2 fw-bold" href="" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/mattia-dmarco/colloquio?hide_gdpr_banner=1'});return false;">Prenonta una consulenza 👇🏻</a>
+          <!-- Calendly link widget end -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- END HERO SECTION -->
+  
+  <!-- SERVICE SECTION -->
+<div class="container px-4 py-5" id="featured-3">
+    <h2 class="pb-2 mb-0 fs-2 text-body-emphasis">Servizi</h2>
+    <hr class='border border-primary mt-0' width='50%'>
+    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+        <div class="feature col">
+            <h4 class="fs-2 text-body-emphasis">
+                <span>
+                    <img src="{% static 'images/foto.png' %}" height="50">
+                </span>Servizio Fotografico
+            </h4>
+        <p>Servizio fotografico dedicato di massimo 20 foto e consenga del lavoro in 48 ore</p>
+        </div>
+        <div class="feature col">
+            <h4 class="fs-2 text-body-emphasis">
+                <span>
+                    <img src="{% static 'images/video.png' %}" height="50">
+                </span>Video Tour <b>( <u>In arrivo</u> )</b>
+            </h4>
+            <p>Video Tour dell'immobile, interno ed esterno, con possibilità di riprese con il drone</p>
+        </div>
+        <div class="feature col">
+            <h4 class="fs-2 text-body-emphasis">
+                Virtual Tour <span>
+                    <img src="{% static 'images/360.png' %}" height="50">
+                </span>
+            </h4>
+            <p>Un vero e proprio Virtual Tour a 360° della casa, come se fosse una visita dal vivo!</p>
+        </div>
+    </div>
+    <hr class='border border-primary my-0' width='50%'>
+</div>
+<!-- END SERVICE SECTION -->
+
+<!-- LAST WORKS -->
+
+<div class="container">
+  <h2 class='pb-2 mb-0'>Ultimi Lavori </h2>
+  <hr class='border border-primary my-0' width='50%'>
+  <div class="col-md-12">
+    <div class="row">
+      {% for property in properties %}
+      <div class="col-lg-6">
+        <div class="card my-3">
+          <img class="thunbnail-image" src="{{property.thumbnail.url}}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <p class="card-text">{{property.title}} - {{property.city}}</p>
+          </div>
+          <a href="{% url 'property' property.id %}" class="btn btn-primary btn-sm m-1">Galleria Immagini</a>
+          <a href="{{property.virtual_tour}}" target="_blank" class="btn btn-primary btn-sm m-1">VirtualTour</a>
+        </div>
+      </div>
+      {% empty %}
+        <h3> Nessun Immobile Inserito ... </h3>
+      {% endfor %}
+    </div>
+  </div>
+  <hr class='border border-primary my-0' width='50%'>
+</div>
+
+<!-- END LAST WORKS -->
+
+<div class="container d-grid gap-2 py-3">
+  <!-- Calendly link widget begin -->
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+  <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+  <a class='btn btn-success btn-lg px-4 me-md-2 fw-bold' href="" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/mattia-dmarco/colloquio'});return false;">Prenota una consulenza adesso! 😎</a>
+  <!-- Calendly link widget end -->
+</div>
+
+{% endblock content %}
